@@ -1,0 +1,23 @@
+/ h1はレイアウトに使われているので、h2から始めること
+%h2.page-title みんなのポスト
+- @articles.each do |article|
+
+  .contents.clearfix
+    %h3.content__title= article.title
+    
+    -if user_signed_in? && current_user.id == article.user_id
+      .edit-menu
+        =link_to "/articles/#{article.id}", method: :delete do
+          %i.fas.fa-trash-alt.edit-menu__btn
+        =link_to "/articles/#{article.id}/edit", method: :get do
+          %i.fas.fa-edit.edit-menu__btn
+
+    %ul.post-info
+      %li.post-info__list 投稿者名：#{article.name}
+      %li.post-info__list 投稿日：#{article.updated_at}
+
+    %p.content__article= article.article
+  
+    .more-info.clearfix
+      %a.more-info__show-detail{:href => "#"} 詳細を見る
+= render 'new-post'

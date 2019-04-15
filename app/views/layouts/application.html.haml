@@ -1,0 +1,29 @@
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Miniapp
+    = csrf_meta_tags
+    = csp_meta_tag
+    / jQuery-------------------------------------
+    %script{:crossorigin => "anonymous", :integrity => "sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=", :src => "https://code.jquery.com/jquery-3.3.1.js"}
+    / css-----------------------------------------
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    %link{:href => "https://use.fontawesome.com/releases/v5.6.1/css/all.css", :rel => "stylesheet"}/
+    / js------------------------------------------
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  
+  %body
+    .wrapper
+      %header.header.clearfix
+       
+        %h1.header__title
+          =link_to "Mini App Practice", articles_path 
+          
+        %ul.user-menu
+          -if user_signed_in?
+            %li.user-menu__list=link_to "ログアウト", destroy_user_session_path, method: :delete
+          -else 
+            %li.user-menu__list=link_to "新規登録", new_user_registration_path, method: :get 
+            %li.user-menu__list=link_to "ログイン", new_user_session_path, method: :get
+      
+    = yield

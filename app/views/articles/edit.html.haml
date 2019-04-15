@@ -1,0 +1,10 @@
+%h3.page-title
+  編集する
+.contents.row
+  
+
+  =form_tag("/articles/#{@article.id}", method: :patch) do
+    %input{:name => "name", :value => "#{@article.name}", :type => "text"}/
+    %input{:name => "title", :value => "#{@article.title}", :type => "text"}/
+    %textarea{:cols => "30", :name => "article", :rows => "10"}=@article.article
+    %input.form-btn{:type => "submit", :value => "SUBMIT"}/

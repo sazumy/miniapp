@@ -1,0 +1,199 @@
+
+//--------------variables --------------------------------------------------//
+$accent_color: #ee6e73;
+$drop_shadow: 2px 2px 2px rgba(0,0,0,0.3);
+$white: #fff;
+$gray: #666;
+
+@mixin white_link {
+  text-decoration: none;
+  &::before{
+    color: $white;
+  }
+  &:hover{
+    color: rgba(255, 255, 255, 0.6);
+  }
+  &:visited{
+    color: $white;
+  }
+}
+
+@mixin gray_link {
+  text-decoration: none;
+  &::before{
+    color: #666;
+  }
+  &:hover{
+    color: rgba(100, 100, 100, 0.6);
+  }
+}
+
+
+
+@mixin btn {
+  display: inline-block;
+  text-align: center;
+  padding: 10px;
+}
+
+@mixin white-btn{
+  @include btn;
+  font-size:0.8em;
+  width: 100px;
+  border-style: solid;
+  border-color: $white;
+  border-width: 2px;
+  border-radius: 3px;
+  margin-right: 5px;
+}
+
+//--------------layouuts 全体---------------------------------------------------//
+html {
+  box-sizing: border-box;
+
+  *,*:before,*:after {
+    box-sizing: inherit;
+  }
+}
+
+body{
+  background-color: #ddefef;
+}
+
+.clearfix::after{ 
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.header{
+  background: $accent_color;
+  color: #fff;
+  height: 70px;
+  box-shadow:$drop_shadow
+}
+.new-post{
+  @include btn;
+  @include white_link;
+  position: fixed;
+  bottom:30px;
+  right: 30px;
+  background: $accent_color;
+  border-radius: 25px;
+}
+
+
+.header a{
+  @include white_link;
+}  
+
+.header__title{
+  color: #fff;
+  font-size: 2em;
+  line-height: 100%;
+  padding-left: 40px;
+  float:left;
+}
+.user-menu{
+  float:right;
+}
+
+.user-menu__list{
+  @include white-btn;
+}
+
+
+/*--------------conotents ------------------------------------------------*/
+.page-title{
+  color: $accent_color;
+  font: 1.5em;
+  padding-left: 40px;
+}
+
+.contents{
+  background-color: rgba(255, 255, 255, 1);
+  width: 80%;
+  border-radius: 15px;
+  margin: 5px 40px 25px;
+  padding: 15px;
+  box-shadow:2px 2px 2px rgba(0,0,0,0.3); /*----box-shadow変数にしたい-----*/
+  clear: both;
+}
+
+.edit-menu{
+  float: right;
+}
+
+.edit-menu__btn{
+  @include gray_link;
+}
+
+.contents input{
+  width: 100%;
+  box-sizing: border-box;
+  margin: 5px;
+  height: 2em;
+}
+
+.contents textarea{
+  width: 100%;
+  box-sizing: border-box;
+  margin: 5px;
+  height: 200px;
+}
+
+/*--------------top page ------------------------------------------------*/
+
+
+.content__article{
+  color: #444;
+  font: 0.8em;
+}
+
+
+
+.content__title{
+  display: block;
+  color: $accent_color;
+  font-size: 1.5em;
+  line-height: 1.5em;
+  border-bottom-style: dotted;
+  border-block-end-width: 2px;
+  border-bottom-color: $accent_color;
+}
+
+
+.post-info__list{
+  @include gray_link;
+  display: inline;
+  font-size:0.6em;
+  color: #666;
+}
+
+
+
+.clearfix::after{
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.more-info{
+  bottom:5px;
+  right: 5px;
+  text-decoration: none;
+}
+
+.more-info__show-detail{
+  float: right;
+  color:  $accent_color;
+}
+
+.more-info__show-detail:link{
+  text-decoration: none;
+  color:  $accent_color;
+}
+
+/*--------------partial 読み込み ------------------------------------------------*/
+@import './normalize';
+@import './js'
