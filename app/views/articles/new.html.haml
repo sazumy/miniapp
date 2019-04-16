@@ -3,18 +3,13 @@
 .contents.row
   
 
-  =form_tag('/articles', method: :post) do
-    %input{:name => "name", :placeholder => "Your Name", :type => "text"}/
-    %input{:name => "title", :placeholder => "Title", :type => "text"}/
-    %textarea{:cols => "30", :name => "article", :placeholder => "text", :rows => "10"}
-    %input.form-btn{:type => "submit", :value => "SUBMIT"}/
-
+   
   
-  -# =form_with Article do |f|
-  -#   = f.text_field :name
-  -#   = f.text_field :title
-  -#   = f.text_area :article
-  -#   = f.submit "Submit"
+  =form_for @article do |f|
+    = f.text_field :name
+    = f.text_field :title
+    = f.text_area :article
+    = f.submit "Submit"
 
     -# form_for
     -# <%= form_for [@ar"ticles] do |f| %>

@@ -5,10 +5,11 @@ class ArticlesController < ApplicationController
   end
 
   def new
+    @article = Article.new
   end
 
   def create
-    Article.create(name: article_params[:name], title: article_params[:title], article: article_params[:article], user_id: current_user.id)
+    @article = Article.create(name: article_params[:name], title: article_params[:title], article: article_params[:article], user_id: current_user.id)
   end
 
   def destroy
@@ -33,6 +34,6 @@ class ArticlesController < ApplicationController
 
   private
   def article_params
-    params.permit(:name, :title, :article)
+    params.require(:article).permit(:name, :title, :article)
   end
 end
