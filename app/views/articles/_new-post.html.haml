@@ -1,2 +1,4 @@
-=link_to articles_new_path do
-  %i.fas.fa-plus.new-post
+-if user_signed_in?
+
+  =link_to articles_new_path do
+    %i.fas.fa-plus.new-post

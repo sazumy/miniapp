@@ -6,18 +6,7 @@
    
   
   =form_for @article do |f|
-    = f.text_field :name
-    = f.text_field :title
-    = f.text_area :article
+    = f.text_field :name, placeholder: "Your Name"
+    = f.text_field :title, placeholder: "Title"
+    = f.text_area :article, placeholder: "Write Something"
     = f.submit "Submit"
-
-    -# form_for
-    -# <%= form_for [@ar"ticles] do |f| %>
-    -# <%= f.text_field :name, placeholder: "Your Name" %>
-    -# <%= f.text_field :title, placeholder: "Title" %>
-    -# <%= f.text_area :article, placeholder: "Write Something", rows = "10" %>
-    -# <%= button_tag type: "submit" do %>
-    -#     SUBMIT
-    -# <% end %>
-
-    
