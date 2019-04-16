@@ -1,51 +1,7 @@
-
-//--------------variables --------------------------------------------------//
-$accent_color: #ee6e73;
-$drop_shadow: 2px 2px 2px rgba(0,0,0,0.3);
-$white: #fff;
-$gray: #666;
-
-@mixin white_link {
-  text-decoration: none;
-  &::before{
-    color: $white;
-  }
-  &:hover{
-    color: rgba(255, 255, 255, 0.6);
-  }
-  &:visited{
-    color: $white;
-  }
-}
-
-@mixin gray_link {
-  text-decoration: none;
-  &::before{
-    color: #666;
-  }
-  &:hover{
-    color: rgba(100, 100, 100, 0.6);
-  }
-}
-
-
-
-@mixin btn {
-  display: inline-block;
-  text-align: center;
-  padding: 10px;
-}
-
-@mixin white-btn{
-  @include btn;
-  font-size:0.8em;
-  width: 100px;
-  border-style: solid;
-  border-color: $white;
-  border-width: 2px;
-  border-radius: 3px;
-  margin-right: 5px;
-}
+/*--------------partial 読み込み ------------------------------------------------*/
+@import './normalize';
+@import './js';
+@import './variables';
 
 //--------------layouuts 全体---------------------------------------------------//
 html {
@@ -57,18 +13,12 @@ html {
 }
 
 body{
-  background-color: #ddefef;
-}
-
-.clearfix::after{ 
-  content: "";
-  display: block;
-  clear: both;
+  background-color: $base_color;
 }
 
 .header{
   background: $accent_color;
-  color: #fff;
+  color: $white;
   height: 70px;
   box-shadow:$drop_shadow
 }
@@ -84,16 +34,17 @@ body{
 
 
 .header a{
-  @include white_link;
+  @include white_link; /*  CSS見直す --------*/
 }  
 
 .header__title{
-  color: #fff;
+  color: $white;
   font-size: 2em;
   line-height: 100%;
   padding-left: 40px;
   float:left;
 }
+
 .user-menu{
   float:right;
 }
@@ -102,35 +53,10 @@ body{
   @include white-btn;
 }
 
-
-/*--------------conotents ------------------------------------------------*/
-.page-title{
-  color: $accent_color;
-  font: 1.5em;
-  padding-left: 40px;
-}
-
-.contents{
-  background-color: rgba(255, 255, 255, 1);
-  width: 80%;
-  border-radius: 15px;
-  margin: 5px 40px 25px;
-  padding: 15px;
-  box-shadow:2px 2px 2px rgba(0,0,0,0.3); /*----box-shadow変数にしたい-----*/
-  clear: both;
-}
-
-.edit-menu{
-  float: right;
-}
-
-.edit-menu__btn{
-  @include gray_link;
-}
+//--------------汎用・btn ----------------//
 
 .contents input{
   width: 100%;
-  box-sizing: border-box;
   margin: 5px;
   height: 2em;
 }
@@ -142,15 +68,38 @@ body{
   height: 200px;
 }
 
-/*--------------top page ------------------------------------------------*/
-
-
-.content__article{
-  color: #444;
-  font: 0.8em;
+.form-btn{
+  @include submit-btn;
 }
 
+.clearfix::after{ 
+  content: "";
+  display: block;
+  clear: both;
+}
 
+.page__title{
+  color: $accent_color;
+  font: 1.5em;
+  padding-left: 40px;
+}
+
+/*--------------conotents ------------------------------------------------*/
+
+.contents{
+  background-color: $white;
+  width: 80%;
+  border-radius: 15px;
+  margin: 5px 40px 25px;
+  padding: 15px;
+  box-shadow:$drop_shadow;
+  clear: both;
+}
+
+.content__article{
+  color: $gray;
+  font: 0.8em;
+}
 
 .content__title{
   display: block;
@@ -162,20 +111,18 @@ body{
   border-bottom-color: $accent_color;
 }
 
+.edit-menu{
+  float: right;
+}
+
+.edit-menu__btn{
+  @include gray_link;
+}
 
 .post-info__list{
   @include gray_link;
   display: inline;
   font-size:0.6em;
-  color: #666;
-}
-
-
-
-.clearfix::after{
-  content: "";
-  display: block;
-  clear: both;
 }
 
 .more-info{
@@ -185,15 +132,12 @@ body{
 }
 
 .more-info__show-detail{
+  @include gray_link;
   float: right;
   color:  $accent_color;
 }
 
-.more-info__show-detail:link{
-  text-decoration: none;
-  color:  $accent_color;
-}
-
-/*--------------partial 読み込み ------------------------------------------------*/
-@import './normalize';
-@import './js'
+// .more-info__show-detail:link{
+//   text-decoration: none;
+//   color:  $accent_color;
+// }

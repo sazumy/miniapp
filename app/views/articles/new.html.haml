@@ -1,4 +1,4 @@
-%h3.page-title
+%h3.page__title
   投稿する
 .contents.row
   
@@ -10,14 +10,14 @@
     %input.form-btn{:type => "submit", :value => "SUBMIT"}/
 
   
-  -# =form_for(@article) do |f|
+  -# =form_with Article do |f|
   -#   = f.text_field :name
   -#   = f.text_field :title
   -#   = f.text_area :article
   -#   = f.submit "Submit"
 
     -# form_for
-    -# <%= form_for [@articles] do |f| %>
+    -# <%= form_for [@ar"ticles] do |f| %>
     -# <%= f.text_field :name, placeholder: "Your Name" %>
     -# <%= f.text_field :title, placeholder: "Title" %>
     -# <%= f.text_area :article, placeholder: "Write Something", rows = "10" %>

@@ -5,11 +5,10 @@ class ArticlesController < ApplicationController
   end
 
   def new
-
   end
 
   def create
-    @article = Article.create(name: article_params[:name], title: article_params[:title], article: article_params[:article], user_id: current_user.id)
+    Article.create(name: article_params[:name], title: article_params[:title], article: article_params[:article], user_id: current_user.id)
   end
 
   def destroy

@@ -1,0 +1,59 @@
+
+//--------------variables --------------------------------------------------//
+$accent_color: #ee6e73;
+$base_color:#ddefef;
+$white: #fff;
+$light-gray: #aaa;
+$gray: #666;
+$dark-gray: #333;
+$drop_shadow: 2px 2px 2px rgba(0,0,0,0.3);
+
+@mixin white_link {
+  text-decoration: none;
+  &::before{
+    color: $white;
+  }
+  &:hover{
+    color: rgba(255, 255, 255, 0.6);
+  }
+  &:visited{
+    color: $white;
+  }
+}
+
+@mixin gray_link {
+  text-decoration: none;
+  &::before{
+    color: $light-gray;
+  }
+  &:hover{
+    color: $light-gray;
+  }
+}
+
+@mixin btn {
+  display: inline-block;
+  text-align: center;
+  padding: 10px;
+}
+
+@mixin white-btn{
+  @include btn;
+  font-size:0.8em;
+  width: 100px;
+  border-style: solid;
+  border-color: $white;
+  border-width: 2px;
+  border-radius: 3px;
+  margin-right: 5px;
+}
+
+@mixin submit-btn{
+  @include btn;
+  @include white_link;
+  padding: 0px;
+  background: $accent_color;
+  color: $white;
+  sont-weight:bold;
+  border-radius: 15px;
+}
